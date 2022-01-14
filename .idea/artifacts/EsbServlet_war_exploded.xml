@@ -1,0 +1,50 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="EsbServlet:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/EsbServlet_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="EsbServlet/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="EsbServlet" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/axis-1.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/axis.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/commons-beanutils-1.7.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/commons-codec-1.7.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/commons-collections-3.2.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/commons-collections4-4.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/commons-discovery-0.5.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/commons-io-2.5.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/commons-lang-2.6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/commons-logging-1.1.3.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/ezmorph-1.0.6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/fastjson-1.2.5.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/gson-2.8.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/hessian-4.0.51.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/httpclient-4.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/httpclient-cache-4.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/httpclient-win-4.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/httpcore-4.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/httpmime-4.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/jaxrpc.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/jce.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/json-lib-2.4-jdk15.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/ojdbc14.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/poi-3.17.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/poi-examples-3.17.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/poi-excelant-3.17.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/poi-ooxml-3.17.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/poi-ooxml-schemas-3.17.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/poi-scratchpad-3.17.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/signTools.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/sqljdbc4-4.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/sunjce_provider.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/tj-common-aspectj-5.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/wsdl4j-1.6.3.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../WXfiles/WeChat Files/shangerty/FileStorage/File/2022-01/esbDemo2/esbDemo/lib/xmlbeans-2.6.0.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
