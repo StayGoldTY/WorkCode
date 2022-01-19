@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="EsbServlet:war">
-    <output-path>$PROJECT_DIR$/out/artifacts/EsbServlet_war</output-path>
-    <root id="archive" name="EsbServlet_war.war">
+  <artifact type="war" name="EsbServlet">
+    <output-path>$PROJECT_DIR$/out/artifacts/EsbServlet</output-path>
+    <root id="archive" name="EsbServlet.war">
       <element id="javaee-facet-resources" facet="EsbServlet/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">

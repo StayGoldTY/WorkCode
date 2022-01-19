@@ -3,4 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+
+
+        <servlet>
+            <servlet-name>EsbMethod</servlet-name>
+            <servlet-class>main.EsbMethodServlet</servlet-class>
+        </servlet>
+
+        <servlet-mapping>
+            <servlet-name>EsbMethod</servlet-name>
+            <url-pattern>/Esb</url-pattern>
+        </servlet-mapping>
+
 </web-app>

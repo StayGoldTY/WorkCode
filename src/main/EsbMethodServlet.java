@@ -22,7 +22,8 @@ public class EsbMethodServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             String EsbType = req.getParameter("EsbType");
-            restfulDemo rd = new restfulDemo(EsbType);
+            EsbType = "1";
+            restfulDemo rd = new restfulDemo();
             if (EsbType == "1") {
                 rd.GetData(req,EsbType);
             }
