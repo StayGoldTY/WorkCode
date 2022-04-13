@@ -46,7 +46,7 @@ public class restfulDemoVillageBuild {
         //第一步 获取sign
         String sign = TongTechEncode.HmacSHA256(sid, rid, appkey,rtime);
         System.out.println("对加解密后的秘钥第一次签名后的sign：" + sign);
-        //
+
         //第二步 刷新秘钥
         String secret=TongTechEncode.getSercret(sid, rid, rtime, sign,signKeyUrl);
         ParserConfig.getGlobalInstance().setAsmEnable(false);
@@ -54,10 +54,10 @@ public class restfulDemoVillageBuild {
         System.out.println("新密码："+dataMain.getData().getSecret());
         Thread.sleep(61000);
 
-//		第三步 解密
+        //第三步 解密
         String newSecret = TongTechEncode.AESDncode(appkey, dataMain.getData().getSecret());
         System.out.println("------newSecret---"+newSecret);
-        //
+
         //第四步 根据新秘钥获取新sign
         String rtime2 = "" + System.currentTimeMillis();
         String sign2 = TongTechEncode.HmacSHA256(sid, rid, newSecret,rtime2);

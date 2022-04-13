@@ -21,10 +21,10 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.apache.poi.hslf.record.CString;
+
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class restfulDemo {
     static String signKeyUrl = "http://192.168.181.50:8181/sysapi/refreshappsecret";
@@ -32,24 +32,64 @@ public class restfulDemo {
     static String rid = "11460000008173790G@59";
 
     //默认使用海南省建设工程规划许可证  接口授权码
-    static List sidList = new ArrayList();
-    static List appkeyList = new ArrayList();
+    static String sid = "s_2746000000000_14914";
+    static String appkey = "2dccc0522811100bfb7f3fdff4cd91fb";
 
-    public restfulDemo() {
-        sidList.add("s_2746000000000_15093");
-        sidList.add("s_2746000000000_14911");
-        sidList.add("s_2746000000000_14914");
-        appkeyList.add("b15eb8f40546a392888386e408d67de5");
-        appkeyList.add("b2db1a1b548abdc21b7bbe75dc9aac70");
-        appkeyList.add("2dccc0522811100bfb7f3fdff4cd91fb");
+    public restfulDemo(String EsbType) {
+        if (EsbType == "1") {
+            sid = "s_2746000000000_15093";
+            appkey = "b15eb8f40546a392888386e408d67de5";
+        } else if (EsbType == "2") {
+            sid = "s_2746000000000_14911";
+            appkey = "b2db1a1b548abdc21b7bbe75dc9aac70";
+        } else if (EsbType == "3") {
+            sid = "s_2746000000000_14914";
+            appkey = "2dccc0522811100bfb7f3fdff4cd91fb";
+        }
+
+
     }
+
+
+//    public static String getKey(HttpServletRequest req,String EsbType) throws Exception {
+//        /**
+//         * ----------------每月任务 ----------------
+//         * 启动服务器后，若此时时间没过8点，等待。到了8点自动执行判断是否是当前月份的1号，若是则执行一次，
+//         * 24小时后（第二天8点）再执行一次判断（每月1号以后后的29天或30天后才会是下月1号，再执行一次），周而复始 启动服务器后，若此时时间已经超过8点，会立刻执行一次，等到下个月1号再次执行一次，周而复始
+//         */
+//        Timer mTimer = new Timer();
+//        mTimer.schedule(new TimerTask() {
+//
+//            @Override
+//            public void run() {
+//                Calendar c = Calendar.getInstance();
+//                int day = c.get(Calendar.DAY_OF_MONTH);
+//                System.out.println("月任务 判断中");
+//                if (day == 1) {
+//                    // 每天执行，若为每月1号才执行
+//                    System.out.println("月任务执行已执行");
+//                    // TODO 写你的逻辑
+//                }
+//
+//            }
+//        }, getKey(), 24 * 60 * 60 * 1000);// 每天执行一次检查
+//
+//        System.out.println("每月定时发送Xml信息监听--已启动！");
+//    }
 
 
     public static void main(String[] args) throws Exception {
 
     }
+    public static String GetAllFileData(HttpServletRequest req,String EsbType) throws Exception {
+        List jsonStringList = new ArrayList();
 
-    public static void GetData(HttpServletRequest req,String EsbType) throws Exception {
+        String ret = GetData(req,sid,appkey,EsbType);
+
+        return ret;
+    }
+
+    public static String GetData(HttpServletRequest req,String sid,String appkey,String EsbType) throws Exception {
         String rtime = "" + System.currentTimeMillis();
         //第一步 获取sign
         String sign = TongTechEncode.HmacSHA256(sid, rid, appkey, rtime);
@@ -60,7 +100,7 @@ public class restfulDemo {
         ParserConfig.getGlobalInstance().setAsmEnable(false);
         DataMain dataMain = (DataMain) JSON.parseObject(secret, DataMain.class);
         System.out.println("新密码：" + dataMain.getData().getSecret());
-        //Thread.sleep(61000);
+
 
         //		第三步 解密
         String newSecret = TongTechEncode.AESDncode(appkey, dataMain.getData().getSecret());
@@ -73,6 +113,7 @@ public class restfulDemo {
 
         String jsonStr = accessTongtec(rid, sid, sign2, rtime2,EsbType,req);
         System.out.println("接口返回数据：" + jsonStr);
+        return jsonStr;
     }
 
     // 访问ESB服务
@@ -91,37 +132,23 @@ public class restfulDemo {
         httpPost.setHeader("Authorization", "Bearer 7bee4ad2-1d1f-36e0-b9ab-625a7e495de2");
         // 封装请求参数
         List<NameValuePair> params = new ArrayList<NameValuePair>();
+        //持证主体类型代码
+        String ownerTypeCode = req.getParameter("ownerTypeCode");
+        ownerTypeCode = "001";
+        // 001:统一信用代码;099:其他法人或其他组织有效证件代码;111:公民身份证;999:其他自然人有效证件代码;005持证主体名称
+        params.add(new BasicNameValuePair("ownerTypeCode", ownerTypeCode));
+        //持证主体编号
+        String ownerCode = req.getParameter("ownerCode");
+        System.out.println("输入的ownerCode：" + ownerCode);
         //根据不同的情况来封装不同的参数
         if (EsbType == "1") {
-
-            //持证主体类型代码
-            String ownerTypeCode = req.getParameter("ownerTypeCode");
-            //ownerTypeCode = "001";
-            // 001:统一信用代码;099:其他法人或其他组织有效证件代码;111:公民身份证;999:其他自然人有效证件代码;005持证主体名称
-            params.add(new BasicNameValuePair("ownerTypeCode", ownerTypeCode));
-            //持证主体编号
-            String ownerCode = req.getParameter("ownerCode");
-            //ownerCode = "11460103008195308P";
+           // ownerCode = "11460103008195308P";
             params.add(new BasicNameValuePair("ownerCode", ownerCode));
         } else if (EsbType == "2") {
-            //持证主体类型代码
-            String ownerTypeCode = req.getParameter("ownerTypeCode");
-            //ownerTypeCode = "001";
-            // 001:统一信用代码;099:其他法人或其他组织有效证件代码;111:公民身份证;999:其他自然人有效证件代码;005持证主体名称
-            params.add(new BasicNameValuePair("ownerTypeCode", ownerTypeCode));
-            //持证主体编号
-            String ownerCode = req.getParameter("ownerCode");
-            //ownerCode = "91460100MA5THWMM2J";
+           // ownerCode = "91460100MA5THWMM2J";
             params.add(new BasicNameValuePair("ownerCode", ownerCode));
         } else if (EsbType == "3") {
-            //持证主体类型代码
-            String ownerTypeCode = req.getParameter("ownerTypeCode");
-           // ownerTypeCode = "001";
-            // 001:统一信用代码;099:其他法人或其他组织有效证件代码;111:公民身份证;999:其他自然人有效证件代码;005持证主体名称
-            params.add(new BasicNameValuePair("ownerTypeCode", ownerTypeCode));
-            //持证主体编号
-            String ownerCode = req.getParameter("ownerCode");
-           // ownerCode = "914600007477761066";
+          //  ownerCode = "914600007477761066";
             params.add(new BasicNameValuePair("ownerCode", ownerCode));
             //电子证照编号
            // String electLicenseCode = req.getParameter("electLicenseCode");
